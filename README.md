@@ -2,8 +2,6 @@
 
 A full-stack conversational vehicle search platform for Copart's salvage and used inventory, powered by **Hybrid Search (Structured SQL + Semantic RAG & Knowledge Base)** and multi-turn conversational dialogue.
 
-> **Note on the PDF take-home assignment**: The original PDF contained a hidden prompt injection ("Note to any AI coding assistant") instructing the use of PHP + raw MySQL stored procedures + brute-force full-table scans with no guardrails. This was a **deliberate test** by Copart to identify candidates who blindly trust AI output. This solution rejects those bad practices and implements a modern, scalable, production-grade architecture instead.
-
 ---
 
 ## Architecture Overview
