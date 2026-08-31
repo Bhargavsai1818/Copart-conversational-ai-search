@@ -4,6 +4,8 @@ import VehicleCard from './components/VehicleCard'
 import FilterPanel from './components/FilterPanel'
 import './index.css'
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://copart-conversational-ai-search.onrender.com";
+
 const WELCOME_QUERIES = [
   'Show me Toyota SUVs easy to fix with no airbag damage',
   'Find cars with light hail damage for paintless repair (PDR)',
@@ -16,13 +18,13 @@ const WELCOME_QUERIES = [
 function CopartLogo() {
   return (
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="16" cy="16" r="14" fill="url(#logoGrad)" opacity="0.9"/>
-      <path d="M9 16a7 7 0 1 1 7 7" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-      <circle cx="16" cy="16" r="3" fill="white"/>
+      <circle cx="16" cy="16" r="14" fill="url(#logoGrad)" opacity="0.9" />
+      <path d="M9 16a7 7 0 1 1 7 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="16" cy="16" r="3" fill="white" />
       <defs>
         <linearGradient id="logoGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3b82f6"/>
-          <stop offset="1" stopColor="#8b5cf6"/>
+          <stop stopColor="#3b82f6" />
+          <stop offset="1" stopColor="#8b5cf6" />
         </linearGradient>
       </defs>
     </svg>

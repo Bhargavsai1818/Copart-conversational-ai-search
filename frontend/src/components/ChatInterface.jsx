@@ -4,6 +4,8 @@ import { UserBubble, BotBubble, TypingBubble } from './ConversationBubble'
 // Receive exampleQuery from parent (clicked welcome card)
 
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://copart-conversational-ai-search.onrender.com";
+
 const SUGGESTIONS = [
   'Toyota SUVs easy to fix with no airbag damage',
   'Cars with light hail for paintless repair (PDR)',
@@ -62,7 +64,7 @@ export default function ChatInterface({ onResults, onFiltersChange, exampleQuery
     }
 
     try {
-      const res = await fetch('/chat', {
+      const res = await fetch(`${API_BASE}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: trimmed, session_id: sessionId }),
@@ -80,7 +82,7 @@ export default function ChatInterface({ onResults, onFiltersChange, exampleQuery
     } catch (err) {
       const errMsg = {
         role: 'bot',
-        text: `Sorry, I couldn't connect to the server. Make sure the backend is running on port 8000. (${err.message})`,
+        text: `Sorry, I couldn't connect to the server. Make sure the backend is running. (${err.message})`,
         time: new Date(),
       }
       setMessages(prev => [...prev, errMsg])
@@ -107,7 +109,7 @@ export default function ChatInterface({ onResults, onFiltersChange, exampleQuery
   const handleNewSession = async () => {
     if (sessionId) {
       try {
-        await fetch(`/session/${sessionId}`, { method: 'DELETE' })
+        await fetch(`${API_BASE}/session/${sessionId}`, { method: 'DELETE' })
       } catch {}
     }
     setSessionId(null)
