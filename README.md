@@ -2,6 +2,8 @@
 
 A full-stack conversational vehicle search platform for Copart's salvage and used inventory, powered by **Hybrid Search (Structured SQL + Semantic RAG & Knowledge Base)** and multi-turn conversational dialogue.
 
+> 🚀 **Live Demo**: [https://copart-conversational-ai-search.vercel.app/](https://copart-conversational-ai-search.vercel.app/)
+
 ---
 
 ## Architecture Overview
@@ -83,7 +85,7 @@ copart project/
 ## Quick Start & Setup
 
 ### Prerequisites
-* Python 3.10+ (tested on Python 3.13)
+* Python 3.11+ (tested on Python 3.11.9)
 * Node.js 18+
 
 ### Step 1: Start Backend Server
@@ -182,3 +184,26 @@ curl -s -X POST http://localhost:8000/chat -H "Content-Type: application/json" \
 
 ## Documentation PDF
 A 4-page guide is available at: [`Copart_Conversational_Search_Documentation.pdf`](./Copart_Conversational_Search_Documentation.pdf).
+
+---
+
+## Deployment
+
+| Layer | Platform | URL |
+|-------|----------|-----|
+| **Frontend** | Vercel | [https://copart-conversational-ai-search.vercel.app/](https://copart-conversational-ai-search.vercel.app/) |
+| **Backend API** | Render | [https://copart-conversational-ai-search.onrender.com](https://copart-conversational-ai-search.onrender.com) |
+
+### Environment Variables
+
+**Backend (Render)** — set in Render dashboard under _Environment_:
+```
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=<your-key>
+OPENAI_API_KEY=<your-key>   # optional fallback
+```
+
+**Frontend (Vercel)** — set in Vercel dashboard under _Settings → Environment Variables_:
+```
+VITE_API_BASE_URL=https://copart-conversational-ai-search.onrender.com
+```
